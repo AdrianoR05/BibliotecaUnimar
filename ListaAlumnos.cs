@@ -77,17 +77,6 @@ namespace Biblioteca_Unimar
             return null;
         }
 
-        public string ListarAlumnos()
-        {
-            string lista = "";
-            Nodo temp = cabeza;
-            while (temp != null)
-            {
-                lista += temp.ValorAl.Nombre + " " + temp.ValorAl.Apellido + " " + temp.ValorAl.Cedula + " " + temp.ValorAl.Carrera + "\n";
-                temp = temp.Siguiente;
-            }
-            return lista;
-        }
 
         public string MostrarAlumnos()
         {

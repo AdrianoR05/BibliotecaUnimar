@@ -62,18 +62,32 @@ namespace Biblioteca_Unimar
             }
         }
 
+        public Libro BuscarLibro(string titulo)
+        {
+            Nodo temp = cabeza;
+            while (temp != null)
+            {
+                if (temp.ValorLib.Titulo == titulo)
+                {
+                    return temp.ValorLib;
+                }
+                temp = temp.Siguiente;
+            }
+            return null;
+        }
+
+        public int Cantidad { get { return cantidad; } }    
+
         public string MostrarLibros()
         {
             string lista = "";
             Nodo temp = cabeza;
             while (temp != null)
             {
-                lista += temp.ValorLib.Titulo + " " + temp.ValorLib.Autor + " " + temp.ValorLib.Categoria + "\n";
+                lista += temp.ValorLib.Titulo + "\r\n" + temp.ValorLib.Autor + "\r\n" + temp.ValorLib.Categoria + "\r\n";
                 temp = temp.Siguiente;
             }
             return lista;
         }
-
-        public int Cantidad { get { return cantidad; } }    
     }
 }

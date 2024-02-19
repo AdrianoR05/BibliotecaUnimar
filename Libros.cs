@@ -13,7 +13,7 @@ namespace Biblioteca_Unimar
         private string categoria;
 
         //Metodo constructor
-        Libro(string titulo, string autor, string categoria)
+        public Libro(string titulo, string autor, string categoria)
         {
             this.titulo = titulo;
             this.autor = autor;
