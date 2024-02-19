@@ -16,10 +16,10 @@ namespace Biblioteca_Unimar
         static ListaAlumnos listaAlumnos = new ListaAlumnos();
         private void escribirArchivo()
         {
-            string ruta = @"C:\Users\titor\source\repos\Biblioteca-Unimar\ListaAlumnos.txt";
+            string ruta = @"ListaAlumnos.txt";
             if (File.Exists(ruta))
             {
-                StreamWriter archivo = File.CreateText(ruta);
+                StreamWriter archivo = File.AppendText(ruta);
                 archivo.WriteLine(nombre + " " + apellido + " " + cedula + " " + carrera);
                 archivo.Close();
             }
