@@ -126,5 +126,10 @@ namespace Biblioteca_Unimar
         {
             this.Close();
         }
+
+        private void textBox4_TextChanged_1(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
