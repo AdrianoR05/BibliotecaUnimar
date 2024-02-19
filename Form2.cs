@@ -70,7 +70,19 @@ namespace Biblioteca_Unimar
         //Validacion de texto nombre
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
             {
                 MessageBox.Show("Sólo se permiten letras", "Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Handled = true;
@@ -80,9 +92,21 @@ namespace Biblioteca_Unimar
         //Validacion de texto apellido
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (char.IsLetter(e.KeyChar))
             {
-                MessageBox.Show("Solo se permiten letras", "Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Handled = false;
+            }
+            else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                MessageBox.Show("Sólo se permiten letras", "Denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Handled = true;
                 return;
             }
@@ -97,20 +121,10 @@ namespace Biblioteca_Unimar
                 return;
             }
         }
-
+        //cerrar ventana
         private void volvermenu_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged_1(object sender, EventArgs e)
-        {
-            
         }
     }
 }

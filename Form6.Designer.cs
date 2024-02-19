@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca_Unimar
 {
-    partial class alumnosSancionados
+    partial class formAlumnosSancionados
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(alumnosSancionados));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAlumnosSancionados));
+            this.volvermenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // alumnosSancionados
+            // volvermenu
+            // 
+            this.volvermenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(127)))), ((int)(((byte)(155)))));
+            this.volvermenu.FlatAppearance.BorderSize = 0;
+            this.volvermenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.volvermenu.Font = new System.Drawing.Font("Leelawadee", 11.5F);
+            this.volvermenu.ForeColor = System.Drawing.Color.White;
+            this.volvermenu.Location = new System.Drawing.Point(284, 333);
+            this.volvermenu.Name = "volvermenu";
+            this.volvermenu.Size = new System.Drawing.Size(127, 30);
+            this.volvermenu.TabIndex = 14;
+            this.volvermenu.Text = "Volver al menú";
+            this.volvermenu.UseVisualStyleBackColor = false;
+            this.volvermenu.Click += new System.EventHandler(this.volvermenu_Click);
+            // 
+            // formAlumnosSancionados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(691, 393);
+            this.Controls.Add(this.volvermenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "alumnosSancionados";
+            this.MaximizeBox = false;
+            this.Name = "formAlumnosSancionados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Alumnos Sancionados";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button volvermenu;
     }
 }
