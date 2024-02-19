@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Biblioteca_Unimar
 {
-    public partial class formAlumnosSancionados : Form
+    public partial class formRenovarLibro : Form
     {
-        public formAlumnosSancionados()
+        public formRenovarLibro()
         {
             InitializeComponent();
         }

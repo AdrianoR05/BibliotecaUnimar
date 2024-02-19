@@ -60,6 +60,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "formSolicitud";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Solicitar Préstamo";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);

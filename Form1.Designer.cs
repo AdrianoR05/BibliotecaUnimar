@@ -48,9 +48,9 @@
             this.formMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.formMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formMenu.ForeColor = System.Drawing.Color.White;
-            this.formMenu.Location = new System.Drawing.Point(184, 179);
+            this.formMenu.Location = new System.Drawing.Point(180, 179);
             this.formMenu.Name = "formMenu";
-            this.formMenu.Size = new System.Drawing.Size(160, 29);
+            this.formMenu.Size = new System.Drawing.Size(164, 29);
             this.formMenu.TabIndex = 2;
             this.formMenu.Text = "Registrar alumno";
             this.formMenu.UseVisualStyleBackColor = false;
@@ -64,9 +64,9 @@
             this.verPrestamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.verPrestamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.verPrestamo.ForeColor = System.Drawing.Color.White;
-            this.verPrestamo.Location = new System.Drawing.Point(184, 249);
+            this.verPrestamo.Location = new System.Drawing.Point(180, 249);
             this.verPrestamo.Name = "verPrestamo";
-            this.verPrestamo.Size = new System.Drawing.Size(160, 29);
+            this.verPrestamo.Size = new System.Drawing.Size(164, 29);
             this.verPrestamo.TabIndex = 2;
             this.verPrestamo.Text = "Ver préstamos activos";
             this.verPrestamo.UseVisualStyleBackColor = false;
@@ -82,10 +82,11 @@
             this.sancionados.ForeColor = System.Drawing.Color.White;
             this.sancionados.Location = new System.Drawing.Point(350, 179);
             this.sancionados.Name = "sancionados";
-            this.sancionados.Size = new System.Drawing.Size(162, 29);
+            this.sancionados.Size = new System.Drawing.Size(167, 29);
             this.sancionados.TabIndex = 2;
             this.sancionados.Text = "Alumnos sancionados";
             this.sancionados.UseVisualStyleBackColor = false;
+            this.sancionados.Click += new System.EventHandler(this.sancionados_Click);
             // 
             // renovacion
             // 
@@ -97,10 +98,11 @@
             this.renovacion.ForeColor = System.Drawing.Color.White;
             this.renovacion.Location = new System.Drawing.Point(350, 214);
             this.renovacion.Name = "renovacion";
-            this.renovacion.Size = new System.Drawing.Size(162, 29);
+            this.renovacion.Size = new System.Drawing.Size(167, 29);
             this.renovacion.TabIndex = 2;
             this.renovacion.Text = "Renovar libro";
             this.renovacion.UseVisualStyleBackColor = false;
+            this.renovacion.Click += new System.EventHandler(this.renovacion_Click);
             // 
             // librosDisp
             // 
@@ -110,9 +112,9 @@
             this.librosDisp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.librosDisp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.librosDisp.ForeColor = System.Drawing.Color.White;
-            this.librosDisp.Location = new System.Drawing.Point(184, 284);
+            this.librosDisp.Location = new System.Drawing.Point(180, 284);
             this.librosDisp.Name = "librosDisp";
-            this.librosDisp.Size = new System.Drawing.Size(160, 29);
+            this.librosDisp.Size = new System.Drawing.Size(164, 29);
             this.librosDisp.TabIndex = 2;
             this.librosDisp.Text = "Libros disponibles";
             this.librosDisp.UseVisualStyleBackColor = false;
@@ -128,10 +130,11 @@
             this.devolucion.ForeColor = System.Drawing.Color.White;
             this.devolucion.Location = new System.Drawing.Point(350, 249);
             this.devolucion.Name = "devolucion";
-            this.devolucion.Size = new System.Drawing.Size(162, 29);
+            this.devolucion.Size = new System.Drawing.Size(167, 29);
             this.devolucion.TabIndex = 2;
             this.devolucion.Text = "Devolución";
             this.devolucion.UseVisualStyleBackColor = false;
+            this.devolucion.Click += new System.EventHandler(this.devolucion_Click);
             // 
             // ingresarLibro
             // 
@@ -143,7 +146,7 @@
             this.ingresarLibro.ForeColor = System.Drawing.Color.White;
             this.ingresarLibro.Location = new System.Drawing.Point(350, 284);
             this.ingresarLibro.Name = "ingresarLibro";
-            this.ingresarLibro.Size = new System.Drawing.Size(162, 29);
+            this.ingresarLibro.Size = new System.Drawing.Size(167, 29);
             this.ingresarLibro.TabIndex = 2;
             this.ingresarLibro.Text = "Ingresar nuevo libro";
             this.ingresarLibro.UseVisualStyleBackColor = false;
@@ -157,9 +160,9 @@
             this.solicitud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.solicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.solicitud.ForeColor = System.Drawing.Color.White;
-            this.solicitud.Location = new System.Drawing.Point(184, 214);
+            this.solicitud.Location = new System.Drawing.Point(180, 214);
             this.solicitud.Name = "solicitud";
-            this.solicitud.Size = new System.Drawing.Size(160, 29);
+            this.solicitud.Size = new System.Drawing.Size(164, 29);
             this.solicitud.TabIndex = 2;
             this.solicitud.Text = "Solicitar préstamo";
             this.solicitud.UseVisualStyleBackColor = false;
@@ -183,7 +186,7 @@
             // 
             // interfazMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
