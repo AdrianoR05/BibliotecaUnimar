@@ -39,6 +39,7 @@ namespace Biblioteca_Unimar
                 while (linea != null)
                 {
                     richTextBox1.AppendText(linea+"");
+                    richTextBox1.AppendText("\n");
                     linea = leer.ReadLine();
                 }
             }
@@ -51,6 +52,11 @@ namespace Biblioteca_Unimar
 
                
             }
+        }
+
+        private void formLibrosDispo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

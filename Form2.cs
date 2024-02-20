@@ -23,13 +23,19 @@ namespace Biblioteca_Unimar
             if (File.Exists(ruta)) //Si existe el archivo
             {
                 StreamWriter archivo = File.AppendText(ruta); //Escribe en el archivo
-                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + ". C.I. " + cedula + ". Carrera: " + carrera + "."); //Escribe en el archivo
+                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + "."); //Escribe en el archivo
+                archivo.WriteLine("C.I. "+ cedula + "."); //Escribe en el archivo
+                archivo.WriteLine("Carrera: "+ carrera + "."); //Escribe en el archivo
+                archivo.WriteLine("\n"); //Escribe en el archivo
                 archivo.Close();
             }
             else //Si no existe el archivo
             {
                 TextWriter archivo = new StreamWriter(ruta); //Crea el archivo
-                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + ". C.I. " + cedula + ". Carrera: " + carrera + "."); //Escribe en el archivo
+                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + "."); //Escribe en el archivo
+                archivo.WriteLine("C.I. "+ cedula + "."); //Escribe en el archivo
+                archivo.WriteLine("Carrera: "+ carrera + "."); //Escribe en el archivo
+                archivo.WriteLine("\n"); //Escribe en el archivo
                 archivo.Close();
 
             }
