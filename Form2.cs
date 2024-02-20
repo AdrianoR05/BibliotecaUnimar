@@ -13,20 +13,23 @@ namespace Biblioteca_Unimar
 {
     public partial class formRegistro : Form
     {
-        static ListaAlumnos listaAlumnos = new ListaAlumnos();
+        public static class DatosAlumno
+        {
+            public static ListaAlumnos listaAlumnos = new ListaAlumnos(); //Instancia de la lista de alumnos
+        }
         private void escribirArchivo()
         {
             string ruta = @"ListaAlumnos.txt";//ruta en donde se crea el archivo
-            if (File.Exists(ruta))//si no esta creado, lo crea
+            if (File.Exists(ruta)) //Si existe el archivo
             {
-                StreamWriter archivo = File.AppendText(ruta);
-                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + ". C.I. " + cedula + ". Carrera: " + carrera + ".");
+                StreamWriter archivo = File.AppendText(ruta); //Escribe en el archivo
+                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + ". C.I. " + cedula + ". Carrera: " + carrera + "."); //Escribe en el archivo
                 archivo.Close();
             }
-            else//si esta creado escribe
+            else //Si no existe el archivo
             {
-                TextWriter archivo = new StreamWriter(ruta);
-                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + ". C.I. " + cedula + ". Carrera: " + carrera + ".");
+                TextWriter archivo = new StreamWriter(ruta); //Crea el archivo
+                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + ". C.I. " + cedula + ". Carrera: " + carrera + "."); //Escribe en el archivo
                 archivo.Close();
 
             }
@@ -47,25 +50,40 @@ namespace Biblioteca_Unimar
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            if (textBox1.Text == "") 
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            nombre = textBox1.Text;
-            apellido = textBox2.Text;
-            cedula = textBox3.Text;
-            carrera = comboBox1.Text;
-            Alumno alumno = new Alumno(nombre, apellido, cedula, carrera);
-            textBox4.Text += alumno.MostrarAlumno() + Environment.NewLine;
-            listaAlumnos.AgregarAlumno(alumno);
-            MessageBox.Show("Alumno registrado con éxito", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            escribirArchivo();
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || comboBox1.Text == "") //Comprobacion campos vacios
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else //Si no hay campos vacios
+            {
+                nombre = textBox1.Text; 
+                apellido = textBox2.Text;
+                cedula = textBox3.Text;
+                carrera = comboBox1.Text;
+                Alumno alumno = new Alumno(nombre, apellido, cedula, carrera); //Instancia de la clase Alumno
+                
+                DatosAlumno.listaAlumnos.AgregarAlumno(alumno); //Agrega el alumno a la lista
+                MessageBox.Show("Alumno registrado con éxito", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                escribirArchivo();
+            }
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBox1.Text == "") 
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         //Validacion de texto nombre
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -129,7 +147,18 @@ namespace Biblioteca_Unimar
 
         private void textBox4_TextChanged_1(object sender, EventArgs e)
         {
-            
+            if (textBox4.Text == "")
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

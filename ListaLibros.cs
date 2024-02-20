@@ -89,5 +89,30 @@ namespace Biblioteca_Unimar
             }
             return lista;
         }
+        public Boolean ExisteLibro(string titulo)
+        {
+            Nodo temp = cabeza;
+            while (temp != null)
+            {
+                if (temp.ValorLib.Titulo == titulo)
+                {
+                    return true;
+                }
+                temp = temp.Siguiente;
+            }
+            return false;
+        }
+        public string leerArchivo()
+        {
+            string ruta = @"ListaLibros.txt";
+            string lista = "";
+            if (System.IO.File.Exists(ruta))
+            {
+                System.IO.StreamReader archivo = new System.IO.StreamReader(ruta);
+                lista = archivo.ReadToEnd();
+                archivo.Close();
+            }
+            return lista;
+        }
     }
 }

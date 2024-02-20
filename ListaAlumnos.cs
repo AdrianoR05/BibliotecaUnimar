@@ -76,7 +76,20 @@ namespace Biblioteca_Unimar
             }
             return null;
         }
-
+        
+        public Boolean ExisteAlumno(string cedula)
+        {
+            Nodo temp = cabeza;
+            while (temp != null)
+            {
+                if (temp.ValorAl.Cedula == cedula)
+                {
+                    return true;
+                }
+                temp = temp.Siguiente;
+            }
+            return false;
+        }
 
         public string MostrarAlumnos()
         {
@@ -91,6 +104,19 @@ namespace Biblioteca_Unimar
         }
 
         public int Cantidad { get { return cantidad; } }
+
+        public string leerArchivo()
+        {
+            string ruta = @"ListaAlumnos.txt";
+            string texto = "";
+            if (System.IO.File.Exists(ruta))
+            {
+                System.IO.StreamReader archivo = new System.IO.StreamReader(ruta);
+                texto = archivo.ReadToEnd();
+                archivo.Close();
+            }
+            return texto;
+        }
     }
 
 }

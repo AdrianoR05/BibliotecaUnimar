@@ -20,21 +20,26 @@ namespace Biblioteca_Unimar
         String titulo;
         String autor;
         String categoria;
+        Boolean dispo;
 
-        static ListaLibros listaLibros = new ListaLibros();
-        private void escribirArchivo()
+        public static class DatosLibro
+        {
+            public static ListaLibros listaLibros = new ListaLibros(); //Instancia de la lista de libros
+        }
+        
+        private void escribirArchivo() 
         {
             string ruta = @"ListaLibros.txt";//ruta en donde se crea el archivo
-            if (File.Exists(ruta))//si no esta creado, lo crea
+            if (File.Exists(ruta)) //Si existe el archivo
             {
-                StreamWriter archivo = File.AppendText(ruta);
-                archivo.WriteLine("Titulo: "+ titulo + ". Autor: " + autor + ". Categoria: " + categoria + ".");
+                StreamWriter archivo = File.AppendText(ruta); //Escribe en el archivo
+                archivo.WriteLine("Titulo: "+ titulo + ". Autor: " + autor + ". Categoria: " + categoria + "."); //Escribe en el archivo
                 archivo.Close();
             }
-            else//si esta creado escribe
+            else //Si no existe el archivo
             {
-                TextWriter archivo = new StreamWriter(ruta);
-                archivo.WriteLine("Titulo: "+ titulo + ". Autor: " + autor + ". Categoria: " + categoria + ".");
+                TextWriter archivo = new StreamWriter(ruta); //Crea el archivo
+                archivo.WriteLine("Titulo: "+ titulo + ". Autor: " + autor + ". Categoria: " + categoria + "."); //Escribe en el archivo
                 archivo.Close();
 
             }
@@ -42,7 +47,7 @@ namespace Biblioteca_Unimar
 
         private void volvermenu_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); //cerrar ventana
         }
         //Validacion de texto
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -67,7 +72,7 @@ namespace Biblioteca_Unimar
             }
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e) //Validacion de texto
         {
             if (char.IsLetter(e.KeyChar))
             {
@@ -88,27 +93,50 @@ namespace Biblioteca_Unimar
                 return;
             }
         }
-
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            if (textBox1.Text == "") //Validacion de texto
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            titulo = textBox1.Text;
-            autor = textBox2.Text;
-            categoria = comboBox1.Text;
-            Libro libro = new Libro(titulo, autor, categoria);
-            listaLibros.AgregarLibro(libro);
-            
-            MessageBox.Show("Libro registrado con éxito", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            escribirArchivo();
+            if (textBox1.Text == "" || textBox2.Text == "") //Validacion de texto
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else //Si no hay campos vacios
+            {
+                titulo = textBox1.Text;
+                autor = textBox2.Text;
+                categoria = comboBox1.Text;
+                dispo = true; //El libro se encuentra disponible
+                Libro libro = new Libro(titulo, autor, categoria, dispo); //Instancia de la clase libro
+                DatosLibro.listaLibros.AgregarLibro(libro); //Agrega el libro a la lista
+
+                MessageBox.Show("Libro registrado con éxito", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                escribirArchivo();
+            }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            
+            if (textBox3.Text == "") //Validacion de texto
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "") //Validacion de texto
+            {
+                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
