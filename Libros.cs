@@ -12,6 +12,11 @@ namespace Biblioteca_Unimar
         private string autor;
         private string categoria;
         private Boolean prestado;
+        private string v1;
+        private string v2;
+        private string v3;
+        private string v4;
+        private bool v5;
 
         //Metodo constructor
         public Libro(string titulo, string autor, string categoria, bool prestado)
@@ -20,6 +25,15 @@ namespace Biblioteca_Unimar
             this.autor = autor;
             this.categoria = categoria;
             this.prestado = prestado;
+        }
+
+        public Libro(string v1, string v2, string v3, string v4, bool v5)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
+            this.v4 = v4;
+            this.v5 = v5;
         }
 
 

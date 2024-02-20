@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLibrosDispo));
             this.volvermenu = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnLibrosDisp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // volvermenu
@@ -47,6 +49,31 @@
             this.volvermenu.UseVisualStyleBackColor = false;
             this.volvermenu.Click += new System.EventHandler(this.volvermenu_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(163, 73);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(353, 199);
+            this.richTextBox1.TabIndex = 14;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // btnLibrosDisp
+            // 
+            this.btnLibrosDisp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(127)))), ((int)(((byte)(155)))));
+            this.btnLibrosDisp.FlatAppearance.BorderSize = 0;
+            this.btnLibrosDisp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLibrosDisp.Font = new System.Drawing.Font("Leelawadee", 11.5F);
+            this.btnLibrosDisp.ForeColor = System.Drawing.Color.White;
+            this.btnLibrosDisp.Location = new System.Drawing.Point(279, 289);
+            this.btnLibrosDisp.Name = "btnLibrosDisp";
+            this.btnLibrosDisp.Size = new System.Drawing.Size(127, 30);
+            this.btnLibrosDisp.TabIndex = 13;
+            this.btnLibrosDisp.Text = "Mostrar libros \r\n";
+            this.btnLibrosDisp.UseVisualStyleBackColor = false;
+            this.btnLibrosDisp.Click += new System.EventHandler(this.btnLibrosDisp_Click);
+            // 
             // formLibrosDispo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -55,6 +82,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(691, 393);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btnLibrosDisp);
             this.Controls.Add(this.volvermenu);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -69,5 +98,7 @@
         #endregion
 
         private System.Windows.Forms.Button volvermenu;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btnLibrosDisp;
     }
 }
