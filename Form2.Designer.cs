@@ -42,7 +42,6 @@ namespace Biblioteca_Unimar
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.volvermenu = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -118,6 +117,7 @@ namespace Biblioteca_Unimar
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(163, 30);
             this.textBox2.TabIndex = 5;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox3
@@ -183,15 +183,6 @@ namespace Biblioteca_Unimar
             this.volvermenu.UseVisualStyleBackColor = false;
             this.volvermenu.Click += new System.EventHandler(this.volvermenu_Click);
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(536, 125);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 129);
-            this.textBox4.TabIndex = 13;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged_1);
-            // 
             // formRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -201,7 +192,6 @@ namespace Biblioteca_Unimar
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(707, 393);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.volvermenu);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
@@ -253,6 +243,5 @@ namespace Biblioteca_Unimar
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button volvermenu;
-        private TextBox textBox4;
     }
 }

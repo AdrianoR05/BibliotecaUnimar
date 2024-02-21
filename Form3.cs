@@ -21,20 +21,25 @@ namespace Biblioteca_Unimar
 
         String cedula;
         String titulo;
+        DateTime fechaPrestamo;
 
+        public static class DatosPrestamo
+        {
+            public static ListaPrestamos listaPrestamos = new ListaPrestamos(); //Instancia de la lista de prestamos
+        }
         private void escribirArchivo()
         {
             string ruta = @"SolicitudesPrestamos.txt";//ruta en donde se crea el archivo
             if (System.IO.File.Exists(ruta)) //Si existe el archivo
             {
                 System.IO.StreamWriter archivo = System.IO.File.AppendText(ruta); //Escribe en el archivo
-                archivo.WriteLine("Cedula: " + cedula + ". Titulo: " + titulo + "."); //Escribe en el archivo
-                archivo.Close();
+                archivo.WriteLine(cedula + " - " + titulo + " - " + fechaPrestamo); //Escribe en el archivo
+                archivo.Close(); //cambiar
             }
             else //Si no existe el archivo
             {
                 System.IO.TextWriter archivo = new System.IO.StreamWriter(ruta); //Crea el archivo
-                archivo.WriteLine("Cedula: " + cedula + ". Titulo: " + titulo + "."); //Escribe en el archivo
+                archivo.WriteLine(cedula + " - " + titulo + " - " + fechaPrestamo); //Escribe en el archivo
                 archivo.Close();
 
             }
@@ -102,40 +107,37 @@ namespace Biblioteca_Unimar
             }
         }
 
+        
         private void LeerArchivoAlumnos()
         {
-            try
+            string ruta = @"ListaAlumnos.txt";
+            if (System.IO.File.Exists(ruta))
             {
-                string ruta = @"Alumnos.txt";
-                string[] lineas = System.IO.File.ReadAllLines(ruta);
-                foreach (string linea in lineas)
+                System.IO.StreamReader archivo = new System.IO.StreamReader(ruta);
+                string linea;
+                while ((linea = archivo.ReadLine()) != null)
                 {
-                    string[] datos = linea.Split(',');
+                    string[] datos = linea.Split('-');
                     Alumno alumno = new Alumno(datos[0], datos[1], datos[2], datos[3]);
                     DatosAlumno.listaAlumnos.AgregarAlumno(alumno);
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error al leer el archivo de alumnos");
+                archivo.Close();
             }
         }
         private void LeerArchivoLibros()
         {
-            try
+            string ruta = @"ListaLibros.txt";
+            if (System.IO.File.Exists(ruta))
             {
-                string ruta = @"Libros.txt";
-                string[] lineas = System.IO.File.ReadAllLines(ruta);
-                foreach (string linea in lineas)
+                System.IO.StreamReader archivo = new System.IO.StreamReader(ruta);
+                string linea;
+                while ((linea = archivo.ReadLine()) != null)
                 {
-                    string[] datos = linea.Split(',');
-                    Libro libro = new Libro(datos[0], datos[1], datos[2], datos[3], true);
+                    string[] datos = linea.Split('-');
+                    Libro libro = new Libro(datos[0], datos[1], datos[2], true);
                     DatosLibro.listaLibros.AgregarLibro(libro);
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error al leer el archivo de libros");
+                archivo.Close();
             }
         }
 
@@ -150,15 +152,27 @@ namespace Biblioteca_Unimar
             {
                 cedula = textBox1.Text;
                 titulo = textBox2.Text;
-                if (DatosLibro.listaLibros.ExisteLibro(titulo) == false)
+                fechaPrestamo = DateTime.Now;
+                LeerArchivoAlumnos();
+                LeerArchivoLibros();
+                if (DatosAlumno.listaAlumnos.ExisteAlumno(cedula) == false)
                 {
-                    MessageBox.Show("Libro no registrado.");
+                    MessageBox.Show("El alumno no existe.");
+                    return;
+                } else if (DatosLibro.listaLibros.ExisteLibro(titulo) == false)
+                {
+                    MessageBox.Show("El libro no existe.");
+                    return;
+                }else if (DatosLibro.listaLibros.BuscarLibro(titulo).Prestado == false)
+                {
+                    MessageBox.Show("El libro no está disponible.");
                     return;
                 }
-                else if (DatosAlumno.listaAlumnos.ExisteAlumno(cedula) == false)
+                else
                 {
-                    MessageBox.Show("Alumno no registrado.");
-                    return;
+                    Prestamo prestamo = new Prestamo(cedula, titulo, fechaPrestamo);
+                    DatosPrestamo.listaPrestamos.AgregarPrestamo(prestamo);
+                    DatosLibro.listaLibros.BuscarLibro(titulo).Prestado = false;
                 }
                 MessageBox.Show("Prestamo registrado.");
                 escribirArchivo();

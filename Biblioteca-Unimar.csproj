@@ -105,7 +105,9 @@
     <Compile Include="Libros.cs" />
     <Compile Include="ListaAlumnos.cs" />
     <Compile Include="ListaLibros.cs" />
+    <Compile Include="ListaPrestamos.cs" />
     <Compile Include="Nodo.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

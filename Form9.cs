@@ -33,19 +33,13 @@ namespace Biblioteca_Unimar
             if (File.Exists(ruta)) //Si existe el archivo
             {
                 StreamWriter archivo = File.AppendText(ruta); //Escribe en el archivo
-                archivo.WriteLine("Titulo: "+ titulo + "."); //Escribe en el archivo
-                archivo.WriteLine("Autor: "+ autor + "."); //Escribe en el archivo
-                archivo.WriteLine("Categoria: "+ categoria + "."); //Escribe en el archivo
-                archivo.WriteLine("\n"); //Escribe en el archivo
+                archivo.WriteLine(titulo + " - " + autor + " - " + categoria); //Escribe en el archivo
                 archivo.Close();
             }
             else //Si no existe el archivo
             {
                 TextWriter archivo = new StreamWriter(ruta); //Crea el archivo
-                archivo.WriteLine("Titulo: "+ titulo + "."); //Escribe en el archivo
-                archivo.WriteLine("Autor: "+ autor + "."); //Escribe en el archivo
-                archivo.WriteLine("Categoria: "+ categoria + "."); //Escribe en el archivo
-                archivo.WriteLine("\n"); //Escribe en el archivo
+                archivo.WriteLine(titulo + " - " + autor + " - " + categoria); //Escribe en el archivo
                 archivo.Close();
 
             }
@@ -129,13 +123,6 @@ namespace Biblioteca_Unimar
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox3.Text == "") //Validacion de texto
-            {
-                MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -143,6 +130,16 @@ namespace Biblioteca_Unimar
             {
                 MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void formIngresarLibro_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

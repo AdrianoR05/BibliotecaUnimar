@@ -22,7 +22,10 @@ namespace Biblioteca_Unimar
             this.carrera = carrera;
         }
         //Metodos de acceso nombre
-        public string Nombre { get {  return nombre; } }
+        public string Nombre
+        { 
+            get {  return nombre; }
+        }
         //Metodos de acceso apellido
         public string Apellido { get { return apellido; } }
         //Metodos de acceso cedula

@@ -25,7 +25,7 @@ namespace Biblioteca_Unimar
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnLibrosDisp_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Biblioteca_Unimar
                 while (linea != null)
                 {
                     richTextBox1.AppendText(linea+"");
-                    richTextBox1.AppendText("\n");
+                    richTextBox1.AppendText("\r\n");
                     linea = leer.ReadLine();
                 }
             }
@@ -48,10 +48,7 @@ namespace Biblioteca_Unimar
                 MessageBox.Show("Error");
             }  
 
-            {
-
-               
-            }
+            
         }
 
         private void formLibrosDispo_Load(object sender, EventArgs e)

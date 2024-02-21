@@ -11,6 +11,7 @@ namespace Biblioteca_Unimar
         //Atributos de la clase Nodo
         private Alumno valorAl;
         private Libro valorLib;
+        private Prestamo valorPres;
         private Nodo siguiente;
 
         //Constructor de la clase Nodo
@@ -26,10 +27,18 @@ namespace Biblioteca_Unimar
             this.siguiente = null;
         }
 
+        public Nodo(Prestamo valor)
+        {
+            this.valorPres = valor;
+            this.siguiente = null;
+        }
+
         //Metodos getters y setters
         public Alumno ValorAl { get { return valorAl; } }
 
-        public Libro ValorLib { get { return ValorLib; } }
+        public Libro ValorLib { get { return valorLib; } }
+
+        public Prestamo ValorPres { get { return valorPres; } }
 
         public Nodo Siguiente { get { return siguiente; } set { siguiente = value; } }
 

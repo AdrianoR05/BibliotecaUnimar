@@ -40,7 +40,6 @@ namespace Biblioteca_Unimar
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // volvermenu
@@ -114,11 +113,13 @@ namespace Biblioteca_Unimar
             "Aventura",
             "Ciencia ficción",
             "Cuento",
-            "Tésis de grado"});
+            "Tésis de grado",
+            "Educativo"});
             this.comboBox1.Location = new System.Drawing.Point(458, 300);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(242, 37);
             this.comboBox1.TabIndex = 19;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -149,15 +150,6 @@ namespace Biblioteca_Unimar
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(789, 153);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(188, 309);
-            this.textBox3.TabIndex = 21;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
             // formIngresarLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -166,7 +158,6 @@ namespace Biblioteca_Unimar
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1036, 605);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label4);
@@ -182,6 +173,7 @@ namespace Biblioteca_Unimar
             this.Name = "formIngresarLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar nuevo libro";
+            this.Load += new System.EventHandler(this.formIngresarLibro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,6 +195,5 @@ namespace Biblioteca_Unimar
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private Button button1;
-        private TextBox textBox3;
     }
 }

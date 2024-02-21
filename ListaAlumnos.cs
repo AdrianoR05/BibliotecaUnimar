@@ -10,7 +10,7 @@ namespace Biblioteca_Unimar
     {
         private Nodo cabeza;
         private int cantidad;
-        internal static char text;
+        
 
         public ListaAlumnos()
         {

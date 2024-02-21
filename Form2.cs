@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Biblioteca_Unimar
 {
@@ -23,19 +24,13 @@ namespace Biblioteca_Unimar
             if (File.Exists(ruta)) //Si existe el archivo
             {
                 StreamWriter archivo = File.AppendText(ruta); //Escribe en el archivo
-                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + "."); //Escribe en el archivo
-                archivo.WriteLine("C.I. "+ cedula + "."); //Escribe en el archivo
-                archivo.WriteLine("Carrera: "+ carrera + "."); //Escribe en el archivo
-                archivo.WriteLine("\n"); //Escribe en el archivo
+                archivo.WriteLine(nombre + " - " + apellido + " - " + cedula + " - " + carrera); //Escribe en el archivo
                 archivo.Close();
             }
             else //Si no existe el archivo
             {
                 TextWriter archivo = new StreamWriter(ruta); //Crea el archivo
-                archivo.WriteLine("Nombre: "+ nombre + " " + apellido + "."); //Escribe en el archivo
-                archivo.WriteLine("C.I. "+ cedula + "."); //Escribe en el archivo
-                archivo.WriteLine("Carrera: "+ carrera + "."); //Escribe en el archivo
-                archivo.WriteLine("\n"); //Escribe en el archivo
+                archivo.WriteLine(nombre + " - " + apellido + " - " + cedula + " - " + carrera); //Escribe en el archivo
                 archivo.Close();
 
             }
@@ -151,17 +146,18 @@ namespace Biblioteca_Unimar
             this.Close();
         }
 
-        private void textBox4_TextChanged_1(object sender, EventArgs e)
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (textBox4.Text == "")
+            if (textBox3.Text == "")
             {
                 MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (textBox3.Text == "")
+            if (textBox2.Text == "")
             {
                 MessageBox.Show("Campo vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
